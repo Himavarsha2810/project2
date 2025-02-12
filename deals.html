@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Deals</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        .deals {
+            padding: 20px;
+        }
+        .book-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .book {
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            position: relative;
+        }
+        .book img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .discount {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #007bff;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .sold-out-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: red;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .price {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .cart-btn, .read-more-btn, .view-all {
+            background: #00b894;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .view-all {
+            margin-top: 20px;
+            width: auto;
+        }
+        .wishlist {
+            color: #333;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .details {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+        }
+        .cart, .wishlist-items {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <section class="deals">
+        <h1 style="font-size: 35px;">DEALS STARTING Rs.@99</h1>
+        <div class="book-grid" id="book-grid"></div>
+        <button class="view-all" id="view-all">VIEW MORE</button>
+    </section>
+    <div class="details" id="book-details"></div>
+   
+    <script>
+        const books = [
+            { title: "Rich Dad Poor Dad", author: "Robert Kiyosaki", price: "₹99.00", discount: "-67%", image: "https://m.media-amazon.com/images/I/81bsw6fnUiL._AC_UY327_FMwebp_QL65_.jpg" },
+            { title: "IKIGAI", author: "Héctor García", price: "₹99.00", discount: "-48%", image: "https://cdn.penguin.co.in/wp-content/uploads/2024/01/9780804855334.jpg" },
+            { title: "The Power of Your Subconscious Mind", author: "Joseph Murphy", price: "₹109.00", discount: "-42%", image: "https://m.media-amazon.com/images/I/71t4GuxLCuL._AC_UY327_FMwebp_QL65_.jpg" },
+            { title: "The Alchemist", author: "Paulo Coelho", price: "₹99.00", discount: "-55%", image: "https://m.media-amazon.com/images/I/71aFt4+OTOL._AC_UY327_FMwebp_QL65_.jpg" },
+            { title: "Atomic Habits", author: "James Clear", price: "₹149.00", discount: "-40%", image: "https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UY327_FMwebp_QL65_.jpg" },
+            { title: "Think and Grow Rich", author: "Napoleon Hill", price: "₹129.00", discount: "-50%", image: "https://m.media-amazon.com/images/I/71UypkUjStL._AC_UY327_FMwebp_QL65_.jpg" },
+            { title: "The 5 AM Club", author: "Robin Sharma", price: "₹139.00", discount: "-45%", image: "https://m.media-amazon.com/images/I/81N7FmJhbhL._AC_UY327_FMwebp_QL65_.jpg" }
+        ];
+
+        const cartItems = [];
+        const wishlistItems = [];
+
+        const bookGrid = document.getElementById('book-grid');
+        books.forEach(book => {
+            const bookElement = document.createElement('div');
+            bookElement.classList.add('book');
+            bookElement.innerHTML = `
+                <span class="discount">${book.discount}</span>
+                <img src="${book.image}" alt="${book.title}">
+                <h3>${book.title}</h3>
+                <p class="price">${book.price}</p>
+                <button class="cart-btn" onclick="addToCart('${book.title}', '${book.price}', '${book.image}')">Add to cart</button>
+                <p class="wishlist" onclick="addToWishlist('${book.title}', '${book.price}', '${book.image}')">♡ Add to Wishlist</p>
+            `;
+            bookGrid.appendChild(bookElement);
+        });
+
+        function addToCart(title, price, image) {
+            cartItems.push({ title, price, image });
+            updateCart();
+        }
+
+        function updateCart() {
+            const cart = document.getElementById('cart-items');
+            cart.innerHTML = cartItems.map(item => `
+                <div>
+                    <img src="${item.image}" alt="${item.title}" width="50">
+                    <span>${item.title} - ${item.price}</span>
+                </div>
+            `).join('');
+        }
+
+        function addToWishlist(title, price, image) {
+            wishlistItems.push({ title, price, image });
+            updateWishlist();
+        }
+
+        function updateWishlist() {
+            const wishlist = document.getElementById('wishlist');
+            wishlist.innerHTML = wishlistItems.map(item => `
+                <div>
+                    <img src="${item.image}" alt="${item.title}" width="50">
+                    <span>${item.title} - ${item.price}</span>
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('view-all').addEventListener('click', () => {
+            const details = document.getElementById('book-details');
+            if (details.style.display === 'none' || details.style.display === '') {
+                details.innerHTML = books.map(book => `
+                    <div>
+                        <h3>${book.title}</h3>
+                        <p><strong>Author:</strong> ${book.author}</p>
+                        <p><strong>Price:</strong> ${book.price}</p>
+                    </div>
+                `).join('');
+                details.style.display = 'block';
+            } else {
+                details.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
+
+

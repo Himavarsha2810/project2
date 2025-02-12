@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Slider</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .slider-container {
+            width: 80%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            background: white;
+            padding: 20px;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide-group {
+            display: flex;
+            flex: 0 0 100%;
+            justify-content: space-around;
+        }
+
+        .slide {
+            width: 30%;
+            text-align: center;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide img {
+            width: 100px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .title {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .author {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .stars {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            color: #ffa500;
+        }
+
+        .button-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .wishlist-button {
+            background-color: #28a745;
+        }
+
+        .wishlist-button:hover {
+            background-color: #218838;
+        }
+        .action-books{
+            display: flex;
+            position: absolute;
+            top: 100px;
+            color: maroon;
+            padding: 30px;
+            text-shadow: 2px 1px 3px ;
+        }
+    </style>
+</head>
+<body> 
+    <div class="action-books">
+        <h1>ACTION BOOKS</h1>
+    </div>
+
+    <div class="slider-container">
+        <div class="slider" id="slider"></div>
+    </div>
+
+    <script>
+        let index = 0;
+        let books = [];
+        const booksPerSlide = 3;
+
+        async function fetchBooks() {
+            try {
+                const response = await fetch("https://67ab7b875853dfff53d79c2d.mockapi.io/action-books");
+                books = await response.json();
+                displayBooks();
+            } catch (error) {
+                console.error("Error fetching books:", error);
+            }
+        }
+
+        function displayBooks() {
+            const slider = document.getElementById("slider");
+            slider.innerHTML = "";
+
+            for (let i = 0; i < books.length; i += booksPerSlide) {
+                const bookGroup = books.slice(i, i + booksPerSlide);
+                const slideGroup = document.createElement("div");
+                slideGroup.classList.add("slide-group");
+
+                bookGroup.forEach(book => {
+                    const slide = document.createElement("div");
+                    slide.classList.add("slide");
+                    slide.innerHTML = `
+                        <img src="${book.image}" alt="${book.title}">
+                        <div class="title">${book.title}</div>
+                        <div class="author">By ${book.author}</div>
+                        <div class="prize">${book.prize}</div>
+                        <div class="stars">
+                            ${getStars(book.reviews)}
+                        </div>
+                        <div class="button-container">
+                            <button onclick="addToCart('${book.title}')">Add to Cart</button>
+                            <button class="wishlist-button" onclick="addToWishlist('${book.title}')">Add to Wishlist</button>
+                        </div>
+                    `;
+                    slideGroup.appendChild(slide);
+                });
+
+                slider.appendChild(slideGroup);
+            }
+
+            startSlider();
+        }
+
+        function getStars(reviews) {
+            const fullStar = '★';
+            const emptyStar = '☆';
+            const maxStars = 5;
+            let stars = '';
+
+            for (let i = 0; i < maxStars; i++) {
+                stars += i < reviews ? fullStar : emptyStar;
+            }
+
+            return stars;
+        }
+
+        function addToCart(title) {
+            alert(`${title} has been added to your cart!`);
+        } 
+
+        function addToWishlist(title) {
+            alert(`${title} has been added to your wishlist!`);
+        }
+
+        function startSlider() {
+            const slider = document.getElementById("slider");
+            const totalSlides = Math.ceil(books.length / booksPerSlide);
+
+            setInterval(() => {
+                index = (index + 1) % totalSlides;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+            }, 3000);
+        }
+
+        fetchBooks();
+    </script>
+
+</body>
+</html>
