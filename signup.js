@@ -49,7 +49,7 @@ submit.addEventListener("click", function (event) {
 
 document.getElementById("guest").onclick = function () {
   alert("Guest Logged In Sucessfully");
-  window.location.href = "signup.html";
+  window.location.href = "projectprac.html";
 };
 
 document.getElementById("guest-logout").onclick = function () {
