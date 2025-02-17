@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biography Books</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .book {
+        border: 2px solid #ccc;
+        padding: 16px;
+        margin: 16px;
+        text-align: center;
+        width: 350px;
+        box-shadow: 2px 1px 3px black;
+        transition: transform 0.2s ease-in-out;
+      }
+      .book:hover {
+        transform: scale(1.05);
+      }
+      .book img {
+        width: 200px;
+        height: auto;
+      }
+      .buttons {
+        margin-top: 10px;
+      }
+      .buttons button {
+        margin: 15px;
+        color: blueviolet;
+        border-color: black;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .cart,
+      .wishlist {
+        position: fixed;
+        top: 16px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+      }
+      .cart {
+        right: 16px;
+      }
+      .wishlist {
+        left: 16px;
+      }
+      .cart img,
+      .wishlist img {
+        max-width: 50%;
+        height: 24px;
+        margin-right: 8px;
+      }
+      #books-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1
+      style="
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+        text-shadow: 2px 1px 2px;
+      "
+    >
+      Biography Books
+    </h1>
+    <div class="cart">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png"
+        alt="Cart"
+      />
+      <span id="cart-count">0</span>
+    </div>
+    <div class="wishlist">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/like.png"
+        alt="Wishlist"
+      />
+      <span id="wishlist-count">0</span>
+    </div>
+    <div id="books-container"></div>
+
+    <script>
+      let cartCount = 0;
+      let wishlistCount = 0;
+
+      function addToCart(bookId) {
+        cartCount++;
+        document.getElementById("cart-count").innerText = cartCount;
+        alert(`Book is added to cart!`);
+      }
+
+      function addToWishlist(bookId) {
+        wishlistCount++;
+        document.getElementById("wishlist-count").innerText = wishlistCount;
+        alert(`Book is added to wishlist!`);
+      }
+
+      function renderBooks(books) {
+        const container = document.getElementById("books-container");
+        books.forEach((book) => {
+          const bookDiv = document.createElement("div");
+          bookDiv.className = "book";
+          bookDiv.innerHTML = `
+                    <h2>${book.title}</h2>
+                    <img src="${book.image}" alt="${book.title}">
+                    <h3>${book.author}</h3>
+                    <div class="buttons">
+                        <button onclick="addToCart(${book.id})">Add to Cart</button>
+                        <button onclick="addToWishlist(${book.id})">Add to Wishlist</button>
+                    </div>
+                `;
+          container.appendChild(bookDiv);
+        });
+      }
+
+      const books = [
+        {
+          id: 1,
+          title: "The Diary of a Young Girl",
+          author: "Anne Frank",
+          image:
+            "https://rekhtabooks.com/cdn/shop/products/9789355201140_ddd725e5-b840-4361-9cab-7c910755db2a.jpg?v=1680027325",
+        },
+        {
+          id: 2,
+          title: "Steve Jobs",
+          author: "Walter Isaacson",
+          image:
+            "https://m.media-amazon.com/images/I/81nRXuesUkL._AC_UF350,350_QL50_.jpg",
+        },
+        {
+          id: 3,
+          title: "Long Walk to Freedom",
+          author: "Nelson Mandela",
+          image:
+            "https://rukminim2.flixcart.com/image/850/1000/xif0q/book/4/t/u/long-walk-to-freedom-original-imagxfat3wctuvn7.jpeg?q=90&crop=false",
+        },
+        {
+          id: 4,
+          title: "Becoming",
+          author: "Michelle Obama",
+          image:
+            "https://rukminim2.flixcart.com/image/850/1000/kufuikw0/book/z/z/8/becoming-original-imag7jnzvj5yhfwy.jpeg?q=90&crop=fals",
+        },
+        {
+          id: 5,
+          title: "The Story of My Experiments with Truth",
+          author: "Mahatma Gandhi",
+          image: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630508191i/58905550.jpg",
+        },
+        {
+          id: 6,
+          title: "Churchill: A Life",
+          author: "Martin Gilbert",
+          image: "https://m.media-amazon.com/images/I/71B4umg9LnL._UF1000,1000_QL80_.jpg",
+        },
+        {
+          id: 7,
+          title: "Einstein: His Life and Universe",
+          author: "Walter Isaacson",
+          image: "https://m.media-amazon.com/images/I/81nm1RgykLL._UF1000,1000_QL80_.jpg",
+        },
+        {
+          id: 8,
+          title: "I Know Why the Caged Bird Sings",
+          author: "Maya Angelou",
+          image: "https://m.media-amazon.com/images/I/61-E0cMKZeL._AC_UF1000,1000_QL80_.jpg",
+        },
+        {
+          id: 9,
+          title: "The Wright Brothers",
+          author: "David McCullough",
+          image: "https://d28hgpri8am2if.cloudfront.net/book_images/onix/cvr9781471150371/wright-brothers-9781471150371_hr.jpg",
+        },
+        {
+          id: 10,
+          title: "The Immortal Life of Henrietta Lacks",
+          author: "Rebecca Skloot",
+          image: "https://m.media-amazon.com/images/I/81coyP8S-ZL.jpg",
+        },
+      ];
+
+      renderBooks(books);
+    </script>
+  </body>
+</html>

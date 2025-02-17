@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biography Books</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .book {
+        border: 2px solid #ccc;
+        padding: 16px;
+        margin: 16px;
+        text-align: center;
+        width: 350px;
+        box-shadow: 2px 1px 3px black;
+        transition: transform 0.2s ease-in-out;
+      }
+      .book:hover {
+        transform: scale(1.05);
+      }
+      .book img {
+        width: 200px;
+        height: auto;
+      }
+      .buttons {
+        margin-top: 10px;
+      }
+      .buttons button {
+        margin: 15px;
+        color: blueviolet;
+        border-color: black;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .cart,
+      .wishlist {
+        position: fixed;
+        top: 16px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+      }
+      .cart {
+        right: 16px;
+      }
+      .wishlist {
+        left: 16px;
+      }
+      .cart img,
+      .wishlist img {
+        max-width: 50%;
+        height: 24px;
+        margin-right: 8px;
+      }
+      #books-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1
+      style="
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+        text-shadow: 2px 1px 2px;
+      "
+    >
+    Ethics  Books
+    </h1>
+    <div class="cart">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png"
+        alt="Cart"
+      />
+      <span id="cart-count">0</span>
+    </div>
+    <div class="wishlist">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/like.png"
+        alt="Wishlist"
+      />
+      <span id="wishlist-count">0</span>
+    </div>
+    <div id="books-container"></div>
+
+    <script>
+      let cartCount = 0;
+      let wishlistCount = 0;
+
+      function addToCart(bookId) {
+        cartCount++;
+        document.getElementById("cart-count").innerText = cartCount;
+        alert(`Book is added to cart!`);
+      }
+
+      function addToWishlist(bookId) {
+        wishlistCount++;
+        document.getElementById("wishlist-count").innerText = wishlistCount;
+        alert(`Book is added to wishlist!`);
+      }
+
+      function renderBooks(books) {
+        const container = document.getElementById("books-container");
+        books.forEach((book) => {
+          const bookDiv = document.createElement("div");
+          bookDiv.className = "book";
+          bookDiv.innerHTML = `
+                    <h2>${book.title}</h2>
+                    <img src="${book.image}" alt="${book.title}">
+                    <h3>${book.author}</h3>
+                    <div class="buttons">
+                        <button onclick="addToCart(${book.id})">Add to Cart</button>
+                        <button onclick="addToWishlist(${book.id})">Add to Wishlist</button>
+                    </div>
+                `;
+          container.appendChild(bookDiv);
+        });
+      }
+
+      const books = [
+     
+    {
+        id: 1,
+        title: 'Ethics: The Fundamentals',
+        author: 'Julia Driver',
+        image: 'https://m.media-amazon.com/images/I/61Lp5syrSQL._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 2,
+        title: 'Being Good: A Short Introduction to Ethics',
+        author: 'Simon Blackburn',
+        image: 'https://m.media-amazon.com/images/I/81o1ve88jwL._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 3,
+        title: 'The Metaphysics of Morals',
+        author: 'Immanuel Kant',
+        image: 'https://m.media-amazon.com/images/I/71C59SCAo4L._UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 4,
+        title: 'How to Be Perfect: The Correct Answer to Every Moral Question',
+        author: 'Michael Schur',
+        image: 'https://m.media-amazon.com/images/I/71s-1guhHeL._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 5,
+        title: 'Business Ethics: Best Practices for Designing and Managing Ethical Organizations',
+        author: 'Denis Collins',
+        image: 'https://m.media-amazon.com/images/I/91l37wFIP8L._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 6,
+        title: 'The Ethics of Sightseeing',
+        author: 'David C. Taylor',
+        image: 'https://m.media-amazon.com/images/I/61SJFATDsfL._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 7,
+        title: 'Ethics and the History of Indian Philosophy',
+        author: 'Shyam Ranganathan',
+        image: 'https://m.media-amazon.com/images/I/614XjanDwcL.jpg'
+    },
+    {
+        id: 8,
+        title: 'The Righteous Mind: Why Good People Are Divided by Politics and Religion',
+        author: 'Jonathan Haidt',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlPWvWSiNH_eX2-SlYYgZ6bHq2W0awUSGQBw&s'
+    },
+    {
+        id: 9,
+        title: 'The Ethics of Ambiguity',
+        author: 'Simone de Beauvoir',
+        image: 'https://upload.wikimedia.org/wikipedia/en/thumb/9/90/TheEthicsOfAmbiguity.jpg/220px-TheEthicsOfAmbiguity.jpg'
+    }
+];
+
+      
+
+      renderBooks(books);
+    </script>
+  </body>
+</html>

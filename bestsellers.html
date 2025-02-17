@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .bestsellers{
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-shadow: 2px 1px 3px;
+    color: darkred;
+   }
+   .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+  }
+
+  .card h3 {
+    margin: 10px 0;
+  }
+
+  .card p {
+    margin: 10px 0;
+  }
+  .card button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .card button:hover {
+    background-color: gray;
+  }
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+    </style>
+</head>
+<body>
+    <div  class="bestsellers">
+        <h1>OUR BESTSELLERS</h1>
+    </div>
+    <div class="cards-container" id="cards-container"></div>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="cards-container"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+  </div>
+  <script>
+    fetch('https://67a9a5d06e9548e44fc447d6.mockapi.io/best-sellers')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('cards-container');
+        data.forEach(book => {
+          const card = document.createElement('div');
+          card.classList.add('card');
+          // card.style.borderRadius="10px";
+          // card.style.boxShadow="2px 1px 3px";
+          card.style.height="500px";
+
+          const img = document.createElement('img');
+          img.src = book.image;
+          img.alt = book.title;
+          img.style.width="70%";
+          img.style.height="250px";
+          img.style.padding="20px";
+
+          const title = document.createElement('h3');
+          title.textContent = book.title;
+          // title.style.color="purple";
+          title.style.fontSize="20px";
+
+          const author = document.createElement('p');
+          author.textContent = `Author: ${book.author}`;
+          // author.style.color="darkblue";
+          // author.style.backgroundColor="lightpink";
+
+          const genre = document.createElement('p');
+          genre.textContent = `Genre: ${book.genre}`;
+          // genre.style.color="red";
+          // genre.style.backgroundColor="lightblue";
+
+          const releaseDate = document.createElement('p');
+          releaseDate.textContent = `Release Date: ${book.release_date}`;
+          // releaseDate.style.color="golden";
+          // releaseDate.style.backgroundColor="violet";
+
+          const addToCartButton = document.createElement('button');
+          addToCartButton.textContent = "Add to Cart";
+          addToCartButton.onclick = () => addToCart(book.title);
+          addToCartButton.style.width = "120px";
+          addToCartButton.style.marginLeft = "25px";
+
+          const addToWishlistButton = document.createElement('button');
+          addToWishlistButton.innerHTML = "&#9829; Add to Wishlist";  // Heart symbol
+          addToWishlistButton.onclick = () => addToWishlist(book.title);
+          addToWishlistButton.style.width = "150px";
+          addToWishlistButton.style.marginLeft = "25px";
+          addToWishlistButton.style.backgroundColor = "white";
+          addToWishlistButton.style.color = "black";
+    
+          
+
+          card.appendChild(img);
+          card.appendChild(title);
+          card.appendChild(author);
+          card.appendChild(genre);
+          card.appendChild(releaseDate);
+          card.appendChild(addToCartButton);
+          card.appendChild(addToWishlistButton);
+
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error fetching data:', error));
+
+function addToCart(bookTitle) {
+  alert(`${bookTitle} added to cart!`);
+}
+
+function addToWishlist(bookTitle) {
+  alert(`${bookTitle} added to wishlist!`);
+}
+
+  </script>
+</body>
+</html>

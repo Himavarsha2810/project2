@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .review-box {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            text-align: center;
+        }
+        .review-box::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 15px;
+            border-style: solid;
+            border-color: white transparent transparent transparent;
+        }
+        .review-text {
+            font-size: 16px;
+            color: #444;
+        }
+        .review-stars {
+            color: gold;
+        }
+        .profile-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+        .carousel-indicators [data-bs-target] {
+            background-color: #555;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2 class="text-center fw-bold">OUR CUSTOMER'S REVIEWS</h2>
+    <div id="reviewCarousel" class="carousel slide text-center mt-4" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+            <div class="carousel-item active">
+                <div class="review-box mx-auto" style="max-width: 600px;">
+                    <p class="review-stars">★★★★ <span class="text-muted">✔</span></p>
+                    <p class="review-text">Books are in good condition, product received within 1 week, 1 additional book received as a special offer and received bookmarks free of cost.</p>
+                    <img src="https://images.stockcake.com/public/7/f/6/7f6ff389-09b1-4035-8ce3-fbf1ea17b379_large/focused-bookstore-manager-stockcake.jpg" class="profile-img" alt="User">
+                    <h6 class="mt-2">SIVAPRASAD NARAYANAN</h6>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="review-box mx-auto" style="max-width: 600px;">
+                    <p class="review-stars">★★★ <span class="text-muted">✔</span></p>
+                    <p class="review-text">I'm glad I was able to get the books I craved for at such a reasonable rate and also the delivery didn't keep me waiting... Truly satisfied!</p>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE8RZXV5jmEI4Obn5AjzuNH8DuWzmOVcJGiw&s" class="profile-img" alt="User">
+                    <h6 class="mt-2">KAVYA RAICHURA</h6>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <div class="review-box mx-auto" style="max-width: 600px;">
+                    <p class="review-stars">★★★★★ <span class="text-muted">✔</span></p>
+                    <p class="review-text">Loved the quality of books (brand new) and bookmarks were really amazing... Their service is too good and I got my stuff within 4-5 days.</p>
+                    <img src="https://c8.alamy.com/comp/2A7TYPH/author-and-illustrator-adam-hargreaves-has-continued-to-produce-the-mr-men-books-following-his-fathers-death-roger-hargreaves-and-has-written-a-new-series-of-mr-men-childrens-books-with-a-doctor-who-theme-2A7TYPH.jpg" class="profile-img" alt="User">
+                    <h6 class="mt-2">FIZA KHAN</h6>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Carousel Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

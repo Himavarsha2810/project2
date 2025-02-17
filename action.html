@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biography Books</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .book {
+        border: 2px solid #ccc;
+        padding: 16px;
+        margin: 16px;
+        text-align: center;
+        width: 350px;
+        box-shadow: 2px 1px 3px black;
+        transition: transform 0.2s ease-in-out;
+      }
+      .book:hover {
+        transform: scale(1.05);
+      }
+      .book img {
+        width: 200px;
+        height: auto;
+      }
+      .buttons {
+        margin-top: 10px;
+      }
+      .buttons button {
+        margin: 15px;
+        color: blueviolet;
+        border-color: black;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .cart,
+      .wishlist {
+        position: fixed;
+        top: 16px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+      }
+      .cart {
+        right: 16px;
+      }
+      .wishlist {
+        left: 16px;
+      }
+      .cart img,
+      .wishlist img {
+        max-width: 50%;
+        height: 24px;
+        margin-right: 8px;
+      }
+      #books-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <h1
+      style="
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+        text-shadow: 2px 1px 2px;
+      "
+    >
+    Action  Books
+    </h1>
+    <div class="cart">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png"
+        alt="Cart"
+      />
+      <span id="cart-count">0</span>
+    </div>
+    <div class="wishlist">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/like.png"
+        alt="Wishlist"
+      />
+      <span id="wishlist-count">0</span>
+    </div>
+    <div id="books-container"></div>
+    
+
+    <script>
+      let cartCount = 0;
+      let wishlistCount = 0;
+
+      function addToCart(bookId) {
+        cartCount++;
+        document.getElementById("cart-count").innerText = cartCount;
+        alert(`Book is added to cart!`);
+      }
+
+      function addToWishlist(bookId) {
+        wishlistCount++;
+        document.getElementById("wishlist-count").innerText = wishlistCount;
+        alert(`Book is added to wishlist!`);
+      }
+
+      function renderBooks(books) {
+        const container = document.getElementById("books-container");
+        books.forEach((book) => {
+          const bookDiv = document.createElement("div");
+          bookDiv.className = "book";
+          bookDiv.innerHTML = `
+                    <h2>${book.title}</h2>
+                    <img src="${book.image}" alt="${book.title}">
+                    <h3>${book.author}</h3>
+                    <div class="buttons">
+                        <button onclick="addToCart(${book.id})">Add to Cart</button>
+                        <button onclick="addToWishlist(${book.id})">Add to Wishlist</button>
+                    </div>
+                `;
+          container.appendChild(bookDiv);
+        });
+      }
+
+      const books = [
+        {
+          title: "The Hunger Games",
+          author: "Suzanne Collins",
+          image:
+            "https://m.media-amazon.com/images/I/61zo9L2qSvL._AC_UF1000,1000_QL80_.jpg",
+          prize: "₹450",
+        },
+        {
+          title: "The Bourne Identity",
+          author: "Robert Ludlum",
+          image:
+            "https://m.media-amazon.com/images/I/61auuEo3h5L._AC_UF1000,1000_QL80_.jpg",
+          prize: "₹350",
+        },
+        {
+          title: "The Da Vinci Code",
+          author: "Dan Brown",
+          image:
+            "https://www.worthing.in/cdn/shop/products/45_u126656_0_DANBROWN_TheDaVinciCode.jpg?v=1674308106",
+          prize: "₹530",
+        },
+        {
+          title: "The Girl with the Dragon Tattoo",
+          author: "Stieg Larsson",
+          image: "https://bookzoo.in/cdn/shop/products/80481.jpg?v=1647373954",
+          prize: "₹380",
+        },
+        {
+          title: "Jurassic Park",
+          author: "Michael Crichton",
+          image:
+            "https://upload.wikimedia.org/wikipedia/en/thumb/2/21/Jurassic_Park_%28book_cover%29.jpg/220px-Jurassic_Park_%28book_cover%29.jpg",
+          prize: "₹660",
+        },
+        {
+          title: "The Hunt for Red October",
+          author: "Tom Clancy",
+          image:
+            "https://upload.wikimedia.org/wikipedia/en/c/c2/HuntForRedOctober.JPG",
+          prize: "₹200",
+        },
+        {
+          title: "The Count of Monte Cristo",
+          author: "Alexandre Dumas",
+          image:
+            "https://m.media-amazon.com/images/I/61I9UsHVOtL._UF1000,1000_QL80_.jpg",
+          prize: "₹720",
+        },
+        {
+          title: "Ender's Game",
+          author: "Orson Scott Card",
+          image:
+            "https://m.media-amazon.com/images/I/91T-14y8aTL._AC_UF1000,1000_QL80_.jpg",
+          prize: "₹500",
+        },
+        {
+          title: "The Maze Runner",
+          author: "James Dashner",
+          image: "https://m.media-amazon.com/images/I/91Jra1QAMPL._SL1500_.jpg",
+          prize: "₹450",
+        },
+        {
+          title: "Red Rising",
+          author: "Pierce Brown",
+          image:
+            "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_rhMfwsL20QuUyjKKFYe8AwCRV7Ornqnsr8E5yA00GBCDCPKRbmGbPCLRW2bWtrRXDQ8mMmi6qYk4-y9IvfgZkHWQ4m4aCDveapD7E0TclsnaW3aDgdIAj1WNtfuc2UInZL3q0kfIch8/s1600/Red+Rising.jpg",
+          prize: "₹380",
+        },
+        {
+          title: "The Lightning Thief",
+          author: "Rick Riordan",
+          image:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBiUyIW650Wh4GkBRmN5FX-05bT6QC5KS0Yg&s",
+          prize: "₹600",
+        },
+        {
+          title: "The Dark Tower: The Gunslinger",
+          author: "Stephen King",
+          image:
+            "https://m.media-amazon.com/images/I/71OYItP4S-L._AC_UF1000,1000_QL80_.jpg",
+          prize: "₹620",
+        },
+      ];
+
+      renderBooks(books);
+    </script>
+  </body>
+</html>

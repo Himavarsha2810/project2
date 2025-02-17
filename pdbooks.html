@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biography Books</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      .book {
+        border: 2px solid #ccc;
+        padding: 16px;
+        margin: 16px;
+        text-align: center;
+        width: 350px;
+        box-shadow: 2px 1px 3px black;
+        transition: transform 0.2s ease-in-out;
+      }
+      .book:hover {
+        transform: scale(1.05);
+      }
+      .book img {
+        width: 200px;
+        height: auto;
+      }
+      .buttons {
+        margin-top: 10px;
+      }
+      .buttons button {
+        margin: 15px;
+        color: blueviolet;
+        border-color: black;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .cart,
+      .wishlist {
+        position: fixed;
+        top: 16px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+      }
+      .cart {
+        right: 16px;
+      }
+      .wishlist {
+        left: 16px;
+      }
+      .cart img,
+      .wishlist img {
+        max-width: 50%;
+        height: 24px;
+        margin-right: 8px;
+      }
+      #books-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1
+      style="
+        display: flex;
+        justify-content: center;
+        font-size: 50px;
+        text-shadow: 2px 1px 2px;
+      "
+    >
+    Personal Development  Books
+    </h1>
+    <div class="cart">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png"
+        alt="Cart"
+      />
+      <span id="cart-count">0</span>
+    </div>
+    <div class="wishlist">
+      <img
+        src="https://img.icons8.com/ios-filled/50/000000/like.png"
+        alt="Wishlist"
+      />
+      <span id="wishlist-count">0</span>
+    </div>
+    <div id="books-container"></div>
+
+    <script>
+      let cartCount = 0;
+      let wishlistCount = 0;
+
+      function addToCart(bookId) {
+        cartCount++;
+        document.getElementById("cart-count").innerText = cartCount;
+        alert(`Book is added to cart!`);
+      }
+
+      function addToWishlist(bookId) {
+        wishlistCount++;
+        document.getElementById("wishlist-count").innerText = wishlistCount;
+        alert(`Book is added to wishlist!`);
+      }
+
+      function renderBooks(books) {
+        const container = document.getElementById("books-container");
+        books.forEach((book) => {
+          const bookDiv = document.createElement("div");
+          bookDiv.className = "book";
+          bookDiv.innerHTML = `
+                    <h2>${book.title}</h2>
+                    <img src="${book.image}" alt="${book.title}">
+                    <h3>${book.author}</h3>
+                    <div class="buttons">
+                        <button onclick="addToCart(${book.id})">Add to Cart</button>
+                        <button onclick="addToWishlist(${book.id})">Add to Wishlist</button>
+                    </div>
+                `;
+          container.appendChild(bookDiv);
+        });
+      }
+
+      const books = [
+    {
+        id: 1,
+        title: 'Atomic Habits',
+        author: 'James Clear',
+        image: 'https://static.toiimg.com/photo/106221101/106221101.jpg'
+    },
+    {
+        id: 2,
+        title: 'The 7 Habits of Highly Effective People',
+        author: 'Stephen R. Covey',
+        image: 'https://m.media-amazon.com/images/I/71eCLS1aE6L._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 3,
+        title: 'The Power of Habit',
+        author: 'Charles Duhigg',
+        image: 'https://www.clankart.com/user-uploads/advert/The_Power_of_Habit__Charles_Duhigg1718533419942.jpg'
+    },
+    {
+        id: 4,
+        title: 'How to Win Friends and Influence People',
+        author: 'Dale Carnegie',
+        image: 'https://m.media-amazon.com/images/I/611OWa8x+WL._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 5,
+        title: 'The Subtle Art of Not Giving a F*ck',
+        author: 'Mark Manson',
+        image: 'https://bookmart.co.nz/cdn/shop/products/000392-the-subtle-art-of-not-giving-a-f-ck.jpg?v=1681866645'
+    },
+    {
+        id: 6,
+        title: 'The Alchemist',
+        author: 'Paulo Coelho',
+        image: 'https://m.media-amazon.com/images/I/81RPynZRPxL._AC_UF1000,1000_QL80_.jpg'
+    },
+    {
+        id: 7,
+        title: 'Man’s Search for Meaning',
+        author: 'Viktor Frankl',
+        image: 'https://rukminim2.flixcart.com/image/850/1000/xif0q/book/o/2/d/man-s-search-for-meaning-original-imahyghbzaqzgbye.jpeg?q=90&crop=false'
+    },
+    {
+        id: 8,
+        title: 'The Magic of Thinking Big',
+        author: 'David J. Schwartz',
+        image: 'https://covers.openlibrary.org/b/id/409101-L.jpg'
+    },
+    {
+        id: 9,
+        title: 'The Four Agreements',
+        author: 'Don Miguel Ruiz',
+        image: 'https://images.gr-assets.com/books/1348204644l/6596.jpg'
+    },
+    {
+        id: 10,
+        title: 'The Daily Stoic',
+        author: 'Ryan Holiday',
+        image: 'https://m.media-amazon.com/images/I/61s84fchHHL._AC_UF1000,1000_QL80_.jpg'
+    }
+];
+
+
+
+      
+
+      renderBooks(books);
+    </script>
+  </body>
+</html>

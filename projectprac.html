@@ -16,6 +16,8 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+
     <script src="./projectprac.js" defer ></script>
   </head>
   <body>
@@ -130,22 +132,19 @@
                   <a class="nav-link" href="./contact.html">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Coupons/Discount</a>
+                    <a class="nav-link" href="./awardwinners.html">Award winners</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Award winners</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Best sellers</a>
+                    <a class="nav-link" href="./bestsellers.html">Best sellers</a>
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
                   <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="./actionbooks.html">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Fiction</a></li>
-                    <li><a class="dropdown-item" href="#">Biography</a></li>
-                    <li><a class="dropdown-item" href="#">Ethics</a></li>
-                    <li><a class="dropdown-item" href="#">Personal Development</a></li>
+                    <li><a class="dropdown-item" href="./action.html">Action</a></li>
+                    <li><a class="dropdown-item" href="./ficitionbooks.html">Fiction</a></li>
+                    <li><a class="dropdown-item" href="./bio-books.html">Biography</a></li>
+                    <li><a class="dropdown-item" href="./ethics.html">Ethics</a></li>
+                    <li><a class="dropdown-item" href="./pdbooks.html">Personal Development</a></li>
                     <li><a class="dropdown-item" href="./deals.html">Deals@99</a></li>
                   </ul>
                 </li>
@@ -190,7 +189,7 @@
     <!-- <div class="img1">
         <img src="https://www.bookswagon.com/images/promotionimages/web/awardwinning.jpg?v=5.5" alt="">
     </div>  -->
-    <div  class="bestsellers">
+    <!-- <div  class="bestsellers">
         <h1>OUR BESTSELLERS</h1>
     </div>
     <div class="cards-container" id="cards-container"></div>
@@ -199,13 +198,429 @@
       <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
-  </div>
-  <hr style="color: black;"></hr>
-  <!-- <div class="pic1">
-    <img src="https://bookstohomeindia.b-cdn.net/wp-content/uploads/2025/02/REDEEM-IN-YOUR-NEXT-ORDER-1024x128.webp" alt="">
   </div> -->
+  <h1 class="heading">Featured Books</h1>
+    <div class="book-slider">
+      <div class="book">
+        <img
+          src="https://bookstohomeindia.b-cdn.net/wp-content/uploads/2022/07/51Hfv2MfNGL._SX331_BO1204203200_-1-768x768.webp"
+          alt="Rich Dad Poor Dad (Hindi)"
+        />
+        <h4>Rich Dad Poor Dad (Hindi)</h4>
+        <p>₹180.00 <span class="original-price">₹140.00</span></p>
+        <p>Earn 700 BTH Points</p>
+        <button onclick="addToCart('Rich Dad Poor Dad (Hindi)')">Add to cart</button>
+        <button onclick="addToWishlist('Rich Dad Poor Dad (Hindi)')">Add to Wishlist</button>
+      </div>
+      <div class="book">
+        <img
+          src="https://bookstohomeindia.b-cdn.net/wp-content/uploads/2022/07/71g2ednj0JL-1-768x768.webp"
+          alt="Dhan-Sampatti Ka Manovigyan (The Psychology of Money)"
+        />
+        <h4>Dhan-Sampatti Ka Manovigyan (The Psychology of Money)</h4>
+        <p>₹180.00 <span class="original-price">₹145.00</span></p>
+        <p>Earn 725 BTH Points</p>
+        <button onclick="addToCart('The Psychology of Money')">Add to cart</button>
+        <button onclick="addToWishlist('The Psychology of Money')">Add to Wishlist</button>
+      </div>
+      <div class="book">
+        <img
+          src="https://images.squarespace-cdn.com/content/v1/59c82ac46f4ca30b86d179bf/1706362642426-BI3J8PJ5LRJNO8H7WFV4/119.bookreview.AtomicHabits.jpg"
+          alt="Atomic Habits (Hindi)"
+        />
+        <h4>Atomic Habits (Hindi)</h4>
+        <p>₹189.00 <span class="original-price">₹165.00</span></p>
+        <p>Earn 825 BTH Points</p>
+        <button onclick="addToCart('Atomic Habits')">Add to cart</button>
+        <button onclick="addToWishlist('Atomic Habits')">Add to Wishlist</button>
+      </div>
+      <div class="book">
+        <img
+          src="https://rukminim2.flixcart.com/image/850/1000/xif0q/regionalbooks/w/m/c/apke-avchetan-man-ki-shakti-original-imagrfjdzzswh2yc.jpeg?q=20&crop=false"
+          alt="Apke Avchetan Man Ki Shakti (The Power of your Subconscious Mind in Hindi)"
+        />
+        <h4>
+          Apke Avchetan Man Ki Shakti (The Power of your Subconscious Mind in
+          Hindi)
+        </h4>
+        <p>₹219.00 <span class="original-price">₹145.00</span></p>
+        <p>Earn 725 BTH Points</p>
+        <button onclick="addToCart('The Power of your Subconscious Mind')">Add to cart</button>
+        <button onclick="addToWishlist('The Power of your Subconscious Mind')">Add to Wishlist</button>
+      </div>
+      <div class="book">
+        <img
+          src="https://t2.sdlcdn.com/imgs/j/s/b/850X995_sharpened_2_1/LIFE-AMAZING-SECRETS-BY-GAUR-SDL665859180-1-e37ba.webp"
+          alt="Life’s Amazing Secrets"
+        />
+        <h4>Life’s Amazing Secrets</h4>
+        <p>₹189.00 <span class="original-price">₹109.00</span></p>
+        <p>Earn 545 BTH Points</p>
+        <button onclick="addToCart('Life’s Amazing Secrets')">Add to cart</button>
+        <button onclick="addToWishlist('Life’s Amazing Secrets')">Add to Wishlist</button>
+      </div>
+      <div class="book">
+        <img
+          src="https://www.madrasshoppe.com/202655-large_default/the-power-of-now-journal-eckhart-tolle.jpg"
+          alt="The Power of Now"
+        />
+        <h4>The Power of Now</h4>
+        <p>₹249.00 <span class="original-price">₹200.00</span></p>
+        <p>Earn 900 BTH Points</p>
+        <button onclick="addToCart('The Power of Now')">Add to cart</button>
+        <button onclick="addToWishlist('The Power of Now')">Add to Wishlist</button>
+      </div>
+      <div class="book">
+        <img
+          src="https://m.media-amazon.com/images/I/81drfTT9ZfL.jpg"
+          alt="Ikigai: The Japanese Secret to a Long and Happy Life"
+        />
+        <h4>Ikigai: The Japanese Secret to a Long and Happy Life</h4>
+        <p>₹299.00 <span class="original-price">₹250.00</span></p>
+        <p>Earn 1000 BTH Points</p>
+        <button onclick="addToCart('Ikigai')">Add to cart</button>
+        <button onclick="addToWishlist('Ikigai')">Add to Wishlist</button>
+      </div>
+      <div class="book">
+        <img
+          src="https://miro.medium.com/v2/resize:fit:1400/1*1K1nbbMVN1aGegTxvX5xDA.jpeg"
+          alt="The Alchemist"
+        />
+        <h4>The Alchemist</h4>
+        <p>₹299.00 <span class="original-price">₹199.00</span></p>
+        <p>Earn 795 BTH Points</p>
+        <button onclick="addToCart('The Alchemist')">Add to cart</button> 
+        <button onclick="addToWishlist('The Alchemist')">Add to Wishlist</button>
+      </div>
+    </div>
+
+    <div class="popup" id="popup">
+      <h2 id="popupMessage"></h2>
+      <button onclick="closePopup()">Close</button>
+    </div>
+
+  
+    <script src="script.js"></script>
+
+  <hr style="color: black;"></hr>
+  <div class="pic">
+    <img src="https://www.bookswagon.com/images/promotionimages/web/mangamania.jpg?v=5.5" alt="">
+  </div>
   <hr></hr>
-   
+  <div class="bs-books">
+    <h1>BOX-SETS BOOKS</h1>
+  </div>
+    <div class="navigation">
+        <button onclick="scrollLeft()">&#10094;</button>
+        <button onclick="scrollRight()">&#10095;</button>
+    </div>
+    <div class="slider-container" id="slider">
+        <div class="slider-item">
+            <img src="https://d2g9wbak88g7ch.cloudfront.net/productimages/images200/615/9788413149615.jpg" alt="Book 1">
+            <h3>Stormlight Archive MM Boxed Set I</h3>
+            <p>Brandon Sanderson</p>
+            <p>⭐⭐⭐⭐</p>
+            <p>37% off</p>
+            <p>₹2,161</p>
+        </div>
+        <div class="slider-item">
+          <img src="https://m.media-amazon.com/images/I/91eUHtwOknL._AC_UF1000,1000_QL80_.jpg" alt="Book 1">
+          <h3>A Song of Ice and Fire</h3>
+          <p>George R.R. Martin</p>
+          <p>⭐⭐⭐⭐</p>
+          <p>57% off</p>
+          <p>₹2,634</p>
+      </div>
+      <div class="slider-item">
+          <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534455086i/41187016.jpg" alt="Book 1">
+          <h3>The Witcher Series</h3>
+          <p>Andrzej Sapkowski</p>
+          <p>⭐⭐⭐⭐</p>
+          <p>27% off</p>
+          <p>₹1,634</p>
+      </div>
+      <div class="slider-item">
+        <img src="https://m.media-amazon.com/images/I/71ZbeJyHY8L._AC_UF1000,1000_QL80_.jpg" alt="Book 1">
+        <h3>Harry Potter Box Set</h3>
+        <p>J.K. Rowling</p>
+        <p>⭐⭐⭐⭐</p>
+        <p>47% off</p>
+        <p>₹3,634</p>
+    </div>
+    <div class="slider-item">
+      <img src="https://images-cdn.ubuy.co.id/671b178cb1cf24518515504b-the-hobbit-and-the-lord-of-the-rings.jpg" alt="Book 1">
+      <h3>The Lord of the Rings Boxed Set</h3>
+      <p>C.S. Lewis</p>
+      <p>⭐⭐⭐⭐</p>
+      <p>17% off</p>
+      <p>₹1,989</p>
+  </div>
+  <div class="slider-item">
+    <img src="https://m.media-amazon.com/images/I/81DOCSMnjGL._AC_UF1000,1000_QL80_.jpg" alt="Book 1">
+    <h3>The Chronicles of Narnia</h3>
+    <p>C.S. Lewis</p>
+    <p>⭐⭐⭐⭐</p>
+    <p>67% off</p>
+    <p>₹634</p>
+</div>
+<div class="slider-item">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzYWF4tWTK6JGj2E1qu32o7WEEOMIbAzd_0Q&s" alt="Book 1">
+  <h3>His Dark Materials</h3>
+  <p>Philip Pullman</p>
+  <p>⭐⭐⭐⭐</p>
+  <p>17% off</p>
+  <p>₹1,000</p>
+</div>
+<div class="slider-item">
+  <img src="https://i.ebayimg.com/images/g/1D4AAOSwlwJkxh6R/s-l1200.jpg" alt="Book 1">
+  <h3>The Sookie Stackhouse Series</h3>
+  <p>Charlaine Harris</p>
+  <p>⭐⭐⭐⭐</p>
+  <p>25% off</p>
+  <p>₹2,634</p>
+</div>
+<div class="slider-item">
+  <img src="https://m.media-amazon.com/images/I/81Z7Au4fcCL._UF894,1000_QL80_.jpg" alt="Book 1">
+  <h3>The Twilight Saga</h3>
+  <p>Stephenie Meyer</p>
+  <p>⭐⭐⭐⭐</p>
+  <p>47% off</p>
+  <p>₹3,634</p>
+</div>
+</div>
+
+<h2 class="authors">Featured Authors</h2>
+<div class="s-container">
+    <div class="s1" id="s1">
+        <div class="s-group">
+            <div class="s-item">
+                <img src="https://static01.nyt.com/images/2010/01/20/arts/20segal-1_CA0/popup.jpg?quality=75&auto=webp&disable=upscale" alt="Author 1">
+                <p>Erich Segal</p>
+            </div>
+            <div class="s-item">
+                <img src="https://assets.vogue.com/photos/59564c52f1a5f21be8588617/master/w_1600%2Cc_limit/03-sylvia-plath%2520exhibition.jpg" alt="Author 2">
+                <p>Sylvia Plath</p>
+            </div>
+            <div class="s-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Shashi_Tharoor_WEF.png/640px-Shashi_Tharoor_WEF.png" alt="Author 3">
+                <p>Shashi Tharoor</p>
+            </div>
+            <div class="s-item">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Ilya_Efimovich_Repin_%281844-1930%29_-_Portrait_of_Leo_Tolstoy_%281887%29.jpg/336px-Ilya_Efimovich_Repin_%281844-1930%29_-_Portrait_of_Leo_Tolstoy_%281887%29.jpg" alt="Author 6">
+              <p>Leo Tolstoy</p>
+          </div>
+        </div>
+        <div class="s-group">
+            <div class="s-item">
+                <img src="https://cdn.britannica.com/96/167696-050-22B2A133/Arundhati-Roy.jpg" alt="Author 4">
+                <p>Arundhati Roy</p>
+            </div>
+            <div class="s-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfjeieRDnWe_zZI1jnaUrRqP8b4GfkGNgfng&s" alt="Author 5">
+                <p>Stephen Coonts</p>
+            </div>
+            <div class="s-item">
+                <img src="https://hips.hearstapps.com/hmg-prod/images/portrait-of-agatha-christie-english-writer-undated-news-photo-1713817532.jpg" alt="Author 6">
+                <p>Agatha Christie</p>
+            </div>
+            <div class="s-item">
+              <img src="https://hips.hearstapps.com/hmg-prod/images/english-novelist-charles-dickens-news-photo-1695141740.jpg" alt="Author 6">
+              <p>Charles Dickens</p>
+          </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <button onclick="prevSlide()">&#10094;</button>
+        <button onclick="nextSlide()">&#10095;</button>
+    </div>
+</div>
+<hr></hr>
+<div class="container feature-section">
+  <div class="row">
+      <div class="col-md-4">
+          <div class="feature-box">
+              <div class="feature-icon">
+                  <svg width="66px" height="66px" viewBox="-8.16 -8.16 40.32 40.32" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.29977 5H21L19 12H7.37671M20 16H8L6 3H3M9 20C9 20.5523 8.55228 21 8 21C7.44772 21 7 20.5523 7 20C7 19.4477 7.44772 19 8 19C8.55228 19 9 19.4477 9 20ZM20 20C20 20.5523 19.5523 21 19 21C18.4477 21 18 20.5523 18 20C18 19.4477 18.4477 19 19 19C19.5523 19 20 19.4477 20 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+              </div>
+              <p class="feature-title">Free Shipping</p>
+              <p class="feature-text">On all orders over Rs.599</p>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="feature-box">
+              <div class="feature-icon">
+                  <svg width="64px" height="64px" viewBox="-5.76 -5.76 35.52 35.52" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M14.581 19.4041C14.6645 19.9894 14.2606 20.5326 13.676 20.6211L12 20.9841C11.6307 21.1187 11.2169 21.0265 10.9398 20.7477C10.6627 20.469 10.5729 20.0546 10.7097 19.6861C10.8466 19.3176 11.1851 19.0623 11.577 19.0321L13.252 18.6701C13.8213 18.509 14.4142 18.8364 14.581 19.4041V19.4041Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M7 15.9919C5.89543 15.9919 5 15.0965 5 13.9919V10.9919C5 9.88737 5.89543 8.99194 7 8.99194C8.10457 8.99194 9 9.88737 9 10.9919V13.9919C9 15.0965 8.10457 15.9919 7 15.9919Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path fill-rule="evenodd" clip-rule="evenodd" d="M17 15.9919C15.8954 15.9919 15 15.0965 15 13.9919V10.9919C15 9.88737 15.8954 8.99194 17 8.99194C18.1046 8.99194 19 9.88737 19 10.9919V13.9919C19 15.0965 18.1046 15.9919 17 15.9919Z" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M18.25 11C18.25 11.4142 18.5858 11.75 19 11.75C19.4142 11.75 19.75 11.4142 19.75 11H18.25ZM4.25 11C4.25 11.4142 4.58579 11.75 5 11.75C5.41421 11.75 5.75 11.4142 5.75 11H4.25ZM19.75 14.0023C19.7513 13.5881 19.4165 13.2513 19.0023 13.25C18.5881 13.2487 18.2513 13.5835 18.25 13.9977L19.75 14.0023ZM13.5113 19.8951C13.1071 19.9855 12.8527 20.3865 12.9431 20.7907C13.0335 21.1949 13.4345 21.4493 13.8387 21.3589L13.5113 19.8951ZM19.75 11V9H18.25V11H19.75ZM19.75 9C19.75 4.71979 16.2802 1.25 12 1.25V2.75C15.4518 2.75 18.25 5.54822 18.25 9H19.75ZM12 1.25C7.71979 1.25 4.25 4.71979 4.25 9H5.75C5.75 5.54822 8.54822 2.75 12 2.75V1.25ZM4.25 9V11H5.75V9H4.25ZM18.25 13.9977C18.2414 16.8289 16.2742 19.2771 13.5113 19.8951L13.8387 21.3589C17.2853 20.588 19.7393 17.534 19.75 14.0023L18.25 13.9977Z" fill="#000000"></path> </g></svg>
+              </div>
+              <p class="feature-title">Dedicated Support</p>
+              <p class="feature-text">Quick response within 24 Hours</p>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="feature-box">
+              <div class="feature-icon">
+                  <svg fill="#000000" width="66px" height="66px" viewBox="-8 -8 48.00 48.00" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>dollar</title> <path d="M4.88 15.24v-4.64c0.88 0.32 1.52 1.2 1.52 2.2 0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84c0-1.92-1.36-3.56-3.2-3.96v-0.88c0-0.48-0.36-0.84-0.84-0.84s-0.84 0.36-0.84 0.84v0.88c-1.84 0.4-3.2 2-3.2 3.96s1.36 3.56 3.2 3.96v4.64c-0.88-0.32-1.52-1.2-1.52-2.2 0-0.48-0.36-0.84-0.84-0.84s-0.84 0.36-0.84 0.84c0 1.92 1.36 3.56 3.2 3.96v0.88c0 0.48 0.36 0.84 0.84 0.84s0.84-0.36 0.84-0.84v-0.88c1.84-0.4 3.2-2 3.2-3.96s-1.4-3.56-3.2-3.96zM1.68 12.8c0-1 0.64-1.88 1.52-2.2v4.4c-0.88-0.32-1.52-1.2-1.52-2.2zM4.88 21.4v-4.4c0.88 0.32 1.52 1.2 1.52 2.2s-0.64 1.84-1.52 2.2z"></path> </g></svg>
+              </div>
+              <p class="feature-title">Affordable Pricing</p>
+              <p class="feature-text">Book Price Starting @99</p>
+          </div>
+      </div>
+  </div>
+</div>
+<hr></hr>
+<div class="container mt-5">
+  <h2 class="text-center fw-bold">OUR CUSTOMER'S REVIEWS</h2>
+  <div id="reviewCarousel" class="carousel slide text-center mt-4" data-bs-ride="carousel">
+      <div class="carousel-inner">
+
+          <div class="carousel-item active">
+              <div class="review-box mx-auto" style="max-width: 600px;">
+                  <p class="review-stars">★★★★ <span class="text-muted">✔</span></p>
+                  <p class="review-text">Books are in good condition, product received within 1 week, 1 additional book received as a special offer and received bookmarks free of cost.</p>
+                  <img src="https://images.stockcake.com/public/7/f/6/7f6ff389-09b1-4035-8ce3-fbf1ea17b379_large/focused-bookstore-manager-stockcake.jpg" class="profile-img" alt="User">
+                  <h6 class="mt-2">SIVAPRASAD NARAYANAN</h6>
+              </div>
+          </div>
+
+          <div class="carousel-item">
+              <div class="review-box mx-auto" style="max-width: 600px;">
+                  <p class="review-stars">★★★ <span class="text-muted">✔</span></p>
+                  <p class="review-text">I'm glad I was able to get the books I craved for at such a reasonable rate and also the delivery didn't keep me waiting... Truly satisfied!</p>
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE8RZXV5jmEI4Obn5AjzuNH8DuWzmOVcJGiw&s" class="profile-img" alt="User">
+                  <h6 class="mt-2">KAVYA RAICHURA</h6>
+              </div>
+          </div>
+
+          <div class="carousel-item">
+              <div class="review-box mx-auto" style="max-width: 600px;">
+                  <p class="review-stars">★★★★★ <span class="text-muted">✔</span></p>
+                  <p class="review-text">Loved the quality of books (brand new) and bookmarks were really amazing... Their service is too good and I got my stuff within 4-5 days.</p>
+                  <img src="https://c8.alamy.com/comp/2A7TYPH/author-and-illustrator-adam-hargreaves-has-continued-to-produce-the-mr-men-books-following-his-fathers-death-roger-hargreaves-and-has-written-a-new-series-of-mr-men-childrens-books-with-a-doctor-who-theme-2A7TYPH.jpg" class="profile-img" alt="User">
+                  <h6 class="mt-2">FIZA KHAN</h6>
+              </div>
+          </div>
+
+      </div>
+
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+      </button>
+
+      <!-- Carousel Indicators -->
+      <div class="carousel-indicators">
+          <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="2"></button>
+      </div>
+
+  </div>
+</div>
+<div class="faq-section">
+  <p class="text-muted">STAY UP-TO-DATE</p>
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+
+  <div class="accordion faq-container" id="faqAccordion">
+      <div class="accordion-item">
+          <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                  1. How can I track my order?
+              </button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                  You can track your order using the tracking link provided in your order confirmation email.
+              </div>
+          </div>
+      </div>
+
+      <div class="accordion-item">
+          <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                  2. What is the standard delivery timings?
+              </button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                  Standard delivery takes 3-7 business days depending on your location.
+              </div>
+          </div>
+      </div>
+
+      <div class="accordion-item">
+          <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                  3. Is free delivery available?
+              </button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                  Yes, we offer free delivery on orders over Rs.599.
+              </div>
+          </div>
+      </div>
+
+      <div class="accordion-item">
+          <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                  4. Is COD available?
+              </button>
+          </h2>
+          <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                  Yes, Cash on Delivery (COD) is available for selected locations.
+              </div>
+          </div>
+      </div>
+
+      <div class="accordion-item">
+          <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                  5. Are these books new?
+              </button>
+          </h2>
+          <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">
+                  Yes, all books are brand new unless specified otherwise.
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<footer>
+  <div class="footer-container">
+      <div class="footer-left">
+          <h2>Books Heaven</h2>
+          <p>Delivering Happiness To Your Home.</p>
+          <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+      </div>
+      <div class="footer-right">
+          <h3>INFORMATION</h3>
+          <ul>
+              <li><a href="#">Terms And Conditions</a></li>
+              <li><a href="#">Shipping & Delivery Policy</a></li>
+              <li><a href="#">Refund and Returns Policy</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="footer-bottom">
+  <p>© 2024 BooksToHome | Designed & Developed by <a href="./projectprac.html">Book Heaven</a></p>
+  </div>
+
+
+  <a href="#" class="scroll-top">
+      <i class="fas fa-chevron-up"></i>
+  </a>
+</footer>
+
+
   </body>
 </html>
 

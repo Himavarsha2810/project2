@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Book Store</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+      }
+      .sidebar {
+        width: 20%;
+        padding: 20px;
+        border-right: 1px solid #ddd;
+      }
+      .books-container {
+        width: 80%;
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+      .book {
+        width: 200px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        text-align: center;
+        position: relative;
+      }
+      .discount-badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: red;
+        color: white;
+        padding: 5px;
+        font-size: 14px;
+      }
+      .book img {
+        width: 100%;
+        height: auto;
+      }
+      .price {
+        color: red;
+        font-weight: bold;
+      }
+      .old-price {
+        text-decoration: line-through;
+        color: gray;
+      }
+      .view-more {
+        background-color: #007bff;
+        color: white;
+        padding: 5px;
+        border: none;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 100%;
+        border-radius: 5px;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal-content {
+        background-color: white;
+        margin: 10% auto;
+        padding: 20px;
+        width: 50%;
+        border-radius: 10px;
+      }
+      .close {
+        color: red;
+        float: right;
+        font-size: 28px;
+        cursor: pointer;
+      }
+      h1{
+        display: flex;
+        justify-content: center;
+        color: darkmagenta;
+        text-shadow: 2px 1px 2px;
+        font-size: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div><h1>Award Winners</h1></div>
+    <div class="container">
+      <div class="books-container">
+        <div class="book" data-details="Thinking, Fast and Slow by Daniel Kahneman | Released: 25 Oct 2011 | Major bestseller.">
+          <div class="discount-badge">20%</div>
+          <img src="https://www.bookswagon.com/productimages/images200/631/9780374275631.jpg" alt="Book" />
+          <h4>Thinking, Fast and Slow</h4>
+          <p>Daniel Kahneman</p>
+          <p class="price">₹1,170 <span class="old-price">₹1,672</span></p>
+          <button class="view-more">View More</button>
+        </div>
+          <div class="book" data-details="the novel is a re-imagining of Adventures of Huckleberry Finn by Mark Twain | Released: 19 march 2024 | National award for ficition.">
+          <div class="discount-badge">10%</div>
+          <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1704107491i/173754979.jpg" alt="Book" />
+          <h4>Fiction: James by Percival Everett</h4>
+          <p>Percival Everett</p>
+          <p class="price">₹1,000 <span class="old-price">₹2,102</span></p>
+          <button class="view-more">View More</button>
+          </div>
+          <div class="book" data-details="a 2024 book by Jason De León, published by Viking Press. It won the 2024 National Book Award for Nonfiction">
+            <div class="discount-badge">35%</div>
+            <img src="https://m.media-amazon.com/images/I/91xmNHjP8gL._UF1000,1000_QL80_.jpg" alt="Book" />
+            <h4>Nonfiction: Soldiers and Kings by Jason De León</h4>
+            <p>Jason De León </p>
+            <p class="price">₹1,500 <span class="old-price">₹3,100</span></p>
+            <button class="view-more">View More</button>
+          </div>
+          <div class="book" data-details="incorporates elements of science fiction, literary fiction, and philosophical drama, won booker prize">
+            <div class="discount-badge">15%</div>
+            <img src="https://m.media-amazon.com/images/I/81SfsmpfAJL._UF1000,1000_QL80_.jpg" alt="Book"/>
+            <h4>Orbital by Samantha Harvey</h4>
+            <p>Samantha Harvey </p>
+            <p class="price">₹1,800 <span class="old-price">₹2,500</span></p>
+            <button class="view-more">View More</button>
+          </div>
+          <div class="book" data-details="A beautifully mournful story set in an asylum, intertwining themes of race, language, and tragedy">
+            <div class="discount-badge">25%</div>
+            <img src="https://5.imimg.com/data5/ANDROID/Default/2024/10/457902363/ZC/US/NL/232144301/product-jpeg-500x500.jpg" alt="Book"/>
+            <h4>Night watch</h4>
+            <p> Jayne Anne Phillips </p>
+            <p class="price">₹800 <span class="old-price">₹1,500</span></p>
+            <button class="view-more">View More</button>
+          </div>
+          <div class="book" data-details="A distinguished American children's book that captivates young readers with its imaginative storytelling">
+            <div class="discount-badge">65%</div>
+            <img src="https://m.media-amazon.com/images/I/91q+sXW6P1L._AC_UF1000,1000_QL80_.jpg" alt="Book"/>
+            <h4>The Eyes and the Impossible</h4>
+            <p> Dave Eggers</p>
+            <p class="price">₹1,800 <span class="old-price">₹2,500</span></p>
+            <button class="view-more">View More</button>
+          </div>
+          <div class="book" data-details="A compelling young adult novel that resonates with readers of all ages">
+            <div class="discount-badge">35%</div>
+            <img src="https://m.media-amazon.com/images/I/81N8CEm-taL._AC_UF1000,1000_QL80_.jpg" alt="Book"/>
+            <h4>Everything We Never Had</h4>
+            <p>Randy Ribay</p>
+            <p class="price">₹1,200 <span class="old-price">₹2,100</span></p>
+            <button class="view-more">View More</button>
+          </div>
+          <div class="book" data-details="A gripping account of historical events that keeps readers on the edge of their seats.">
+            <div class="discount-badge">75%</div>
+            <img src="https://m.media-amazon.com/images/I/81md35iMOkL._AC_UF1000,1000_QL80_.jpg" alt="Book"/>
+            <h4>The Demon of Unrest</h4>
+            <p>Erik Larson</p>
+            <p class="price">₹1,000 <span class="old-price">₹3,100</span></p>
+            <button class="view-more">View More</button>
+          </div>
+          <div class="book" data-details="A searing memoir about grief and the quest for justice for her sister's murder.">
+            <div class="discount-badge">50%</div>
+            <img src="https://m.media-amazon.com/images/I/91j-OYdDxeL._AC_UF1000,1000_QL80_.jpg" alt="Book"/>
+            <h4>Liliana's Invincible Summer</h4>
+            <p>Cristina Rivera Garza</p>
+            <p class="price">₹1,500 <span class="old-price">₹3,500</span></p>
+            <button class="view-more">View More</button>
+          </div>
+          <div class="book" data-details="A reimagining of Adventures of Huckleberry Finn from Jim's perspective, blending humor and tragedy".>
+            <div class="discount-badge">30%</div>
+            <img src="https://upload.wikimedia.org/wikipedia/en/9/92/James_%28Everett_novel%29.jpg" alt="Book"/>
+            <h4>James</h4>
+            <p>Percival Everett</p>
+            <p class="price">500 <span class="old-price">₹1,500</span></p>
+            <button class="view-more">View More</button>
+          </div>
+          
+      </div>
+    </div>
+    
+    <div id="bookModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <p id="modalDetails"></p>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".view-more").forEach((button) => {
+        button.addEventListener("click", function () {
+          const book = this.closest(".book");
+          document.getElementById("modalTitle").textContent = book.querySelector("h4").textContent;
+          document.getElementById("modalDetails").textContent = book.dataset.details;
+          document.getElementById("bookModal").style.display = "block";
+        });
+      });
+      
+      document.querySelector(".close").addEventListener("click", function () {
+        document.getElementById("bookModal").style.display = "none";
+      });
+    </script>
+  </body>
+</html>
+
